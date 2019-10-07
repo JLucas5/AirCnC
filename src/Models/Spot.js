@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
  const SpotSchema = new mongoose.Schema({
      thumbnail: String,
+     thumbnail_url: String,
      company: String,
      price: Number,
      techs: [String],
@@ -16,8 +17,8 @@ const mongoose = require('mongoose')
     }
  })
 
- SpotSchema.virtual('thumbnail_url').get(function(){
-     return `http://localhost:3333/files/${this.thumbnail}`
- })
+//  SpotSchema.virtual('thumbnail_url').get(function(){
+//      return `https://air-cnc-images.s3.amazonaws.com/${this.thumbnail}`
+//  })
 
  module.exports = mongoose.model('Spot', SpotSchema)
