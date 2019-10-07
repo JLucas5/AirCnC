@@ -15,7 +15,7 @@ module.exports = {
 
         console.log(req.file)
         
-        const { originalname: filename, location } = req.file
+        const { originalname, location } = req.file
         const { company, techs, price } = req.body
         const { user_id } = req.headers
 
@@ -27,7 +27,7 @@ module.exports = {
 
         const spot = await Spot.create({
             user: user_id,
-            thumbnail: filename,
+            thumbnail: originalname,
             thumbnail_location: location,
             company,
             techs: techs.split(',').map(tech => tech.trim()),
