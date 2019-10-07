@@ -17,8 +17,8 @@ const mongoose = require('mongoose')
     }
  })
 
-//  SpotSchema.virtual('thumbnail_url').get(function(){
-//      return `https://air-cnc-images.s3.amazonaws.com/${this.thumbnail}`
-//  })
+ SpotSchema.virtual('thumbnail_url').get(function(){
+      return `https://air-cnc-images.s3.amazonaws.com/${this.thumbnail}`
+ })
 
  module.exports = mongoose.model('Spot', SpotSchema)
